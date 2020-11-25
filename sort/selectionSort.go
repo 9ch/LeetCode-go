@@ -3,10 +3,12 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 func main() {
 	arr := randDom(66)
+	fmt.Println(arr)
 	s := selectSort(arr)
 	fmt.Println(s)
 }
@@ -33,6 +35,7 @@ func selectSort(arr []int) []int {
 }
 
 func randDom(num int) (result []int) {
+	rand.Seed(time.Now().Unix())
 	for i := 0; i < num; i++ {
 		result = append(result, rand.Intn(num))
 	}

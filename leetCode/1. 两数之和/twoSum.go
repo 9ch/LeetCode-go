@@ -12,7 +12,7 @@ func main() {
 //暴力解法，直接循环比对数组元素。
 func twoSum(nums []int, target int) []int {
 	result := []int{0, 0}
-	for k, _ := range nums {
+	for k := range nums {
 		for j := k + 1; j < len(nums); j++ {
 			if nums[k]+nums[j] == target {
 				result[0], result[1] = k, j
@@ -31,7 +31,7 @@ func twoSum2(nums []int, target int) []int {
 		if v, ok := maps[target-nums[i]]; ok {
 			result[0], result[1] = v, i
 			return result
-		}else{
+		} else {
 			maps[nums[i]] = i
 		}
 	}

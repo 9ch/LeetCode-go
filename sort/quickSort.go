@@ -15,15 +15,14 @@ func quickSort(arr []int) []int {
 	if length <= 1 {
 		return arr
 	}
-	mid := arr[length/2]
-	left := []int{}
-	right := []int{}
+	mid := arr[0]
+	var left, right []int
 
-	for i := 0; i < length; i++ {
-		if arr[i] < mid {
-			left = append(left, arr[i])
+	for i := 1; i < length; i++ {
+		if arr[i] > mid {
+			right = append(right, arr[i])
 		} else {
-			right = append(right, mid)
+			left = append(left, arr[i])
 		}
 	}
 	left = quickSort(left)
