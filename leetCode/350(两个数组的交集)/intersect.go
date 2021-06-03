@@ -16,7 +16,7 @@ func main() {
 	sort.Ints(arr1)
 	sort.Ints(arr2)
 
-	fmt.Println(arr1,arr2)
+	fmt.Println(arr1, arr2)
 	fmt.Println(interSect(arr1, arr2))
 }
 
@@ -41,21 +41,19 @@ func intersect(arr1, arr2 []int) (result []int) {
 
 //有序数组的优化写法
 func interSect(arr1, arr2 []int) []int {
-	len1 := len(arr1)
-	len2 := len(arr2)
+	len1, len2 := len(arr1), len(arr2)
 	i, j := 0, 0
 	var result []int
-	for i < len1 && j < len2 {
+	if i < len1 && j < len2 {
 		if arr1[i] == arr2[j] {
 			result = append(result, arr1[i])
 			i++
 			j++
-		}else if arr1[i] < arr2[j] {
+		} else if arr1[i] < arr2[j] {
 			i++
 		} else {
 			j++
 		}
-
 	}
 	return result
 }

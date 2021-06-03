@@ -10,7 +10,7 @@ import (
 
 如果不存在公共前缀，返回空字符串 ""。
 
-示例 1:
+示例
 
 输入: ["flower","flow","flight"]
 输出: "fl"
@@ -29,24 +29,24 @@ func main() {
 	arr2 := []string{"dog", "racecar", "car"}
 	fmt.Println(arr1, arr2)
 	fmt.Println(longestCommonPrefix(arr1)) //"fl"
-	fmt.Println(longestCommonPrefix(arr2))//
+	fmt.Println(longestCommonPrefix(arr2)) //
 
 }
 
 func longestCommonPrefix(arr []string) string {
 
-	if len(arr) <= 0 {
+	if len(arr) < 1 {
 		return ""
 	}
+
 	pre := arr[0]
 	for _, v := range arr {
-		for strings.Index(v, pre)!= 0 {
-			if len(pre) == 0 {
+		if strings.Index(v, pre) != 0 {
+			if len(pre) < 1 {
 				return ""
 			}
 			pre = pre[:len(pre)-1]
 		}
 	}
-
 	return pre
 }

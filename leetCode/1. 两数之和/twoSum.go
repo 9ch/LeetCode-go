@@ -14,7 +14,7 @@ func twoSum(nums []int, target int) []int {
 	result := []int{0, 0}
 	for k := range nums {
 		for j := k + 1; j < len(nums); j++ {
-			if nums[k]+nums[j] == target {
+			if other := nums[j] + nums[k]; other == target {
 				result[0], result[1] = k, j
 				return result
 			}
