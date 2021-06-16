@@ -30,6 +30,7 @@ func main() {
 	fmt.Println(digits1, digits2)
 	fmt.Println(plusOne(digits1), plusOne(digits2))
 }
+
 /**
 题解：
 需要考虑两点：
@@ -37,7 +38,7 @@ func main() {
 2. 需要进位的数组，类似于[9,9,9]这种，每个位置加1之后，变成了1000，则需要进行进位。
 先将当前位的值进行+1操作，如果当前值对10取余之后，不为0，则代表不需要进位操作，直接返回即可。
 如果没有返回，则代表这个数字有进位操作
- */
+*/
 func plusOne(digits []int) []int {
 
 	for i := len(digits) - 1; i >= 0; i-- {
@@ -50,10 +51,6 @@ func plusOne(digits []int) []int {
 		}
 	}
 	//如果没有返回，则代表这个数字有进位操作，类似于999之类的数字，变成四位。则需要在首位进行填位1操作。
-	result := []int{1}
-	for i := 1; i <= len(digits); i++ {
-		result = append(result, 0)
-	}
 
-	return result
+	return append([]int{1}, digits...)
 }

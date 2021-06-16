@@ -30,22 +30,20 @@ import "fmt"
 */
 
 func main() {
-	nums := []int{1, 2, 3, 4, 5, 6, 7}
-	k := 3
-	rotate1(nums,k)
+	nums := []int{-1}
+	k := 2
+	rotate1(nums, k)
 	fmt.Println(nums)
 }
 
 func rotate1(nums []int, k int) {
 	reverse(nums)
-	reverse(nums[:k])
-	reverse(nums[k:])
+	reverse(nums[:k%len(nums)])
+	reverse(nums[k%len(nums):])
 }
 
 func reverse(nums []int) {
-	l := len(nums) / 2
-	caps := len(nums) - 1
-	for i := 0; i < l; i++ {
-		nums[i], nums[caps-i] = nums[caps-i], nums[i]
+	for i := 0; i < len(nums)/2; i++ {
+		nums[i], nums[len(nums)-i-1] = nums[len(nums)-i-1], nums[i]
 	}
 }

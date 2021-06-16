@@ -15,14 +15,14 @@ E   D   H   N
 请你实现这个将字符串进行指定行数变换的函数：
 
 string convert(string s, int numRows);
-示例 1:
+示例1:
 
 输入: s = "LEETCODEISHIRING", numRows = 3
 输出: "LCIRETOESIIGEDHN"
-示例 2:
+示例2:
 
-输入: s = "LEETCODEISHIRING", numRows = 4
-输出: "LDREOEIIECIHNTSG"
+输入: s = "LEETCODEISHIRING", numRows =
+输出:"LDREOEIIECIHNTSG"
 解释:
 
 L     D     R
@@ -32,12 +32,12 @@ T     S     G
 
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/zigzag-conversion
- */
+*/
 func main() {
 	s := `L   C   I   R
 E T O E S I I G
 E   D   H   N`
-fmt.Println(s)
+	fmt.Println(s)
 }
 
 func convert(s string, numRows int) string {
