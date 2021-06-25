@@ -12,22 +12,21 @@ func main() {
 func quickSort(arr []int) []int {
 
 	length := len(arr)
-	if length <= 1 {
+
+	if length <= 1 { //递归返回条件
 		return arr
 	}
-	mid := arr[0]
-	var left, right []int
-
+	mid := arr[0]         //取一个中间值
+	var left, right []int //定义两个分别存储最小值和最大值的切片
 	for i := 1; i < length; i++ {
-		if arr[i] > mid {
-			right = append(right, arr[i])
-		} else {
+		if arr[i] < mid {
 			left = append(left, arr[i])
+		} else {
+			right = append(right, arr[i])
 		}
 	}
 	left = quickSort(left)
 	left = append(left, mid)
 	right = quickSort(right)
-	result := append(left, right...)
-	return result
+	return append(left, right...)
 }

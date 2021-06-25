@@ -34,24 +34,17 @@ func main() {
 func maxSubArray(nums []int) int {
 
 	result := math.MinInt64
-
-	dp := make([]int, len(nums)) //定义存放Nums[i]最大值的数组
-
-	dp[0] = nums[0] //第一个的最大值肯定为他本身的值。
-
+	dp := make([]int, len(nums))
+	dp[0] = nums[0]
 	for i := 1; i < len(nums); i++ {
-
 		if dp[i-1] < 0 {
 			dp[i] = nums[i]
 		} else {
-			dp[i] = nums[i] + dp[i-1]
+			dp[i] = dp[i-1] + nums[i]
 		}
 	}
-	for _, v := range dp { //所有的和都在这个里面，只需要找出他们中的最大值就可以了。
-
-		if result < v {
-			result = v
-		}
+	for _, v := range dp {
+		result = max(result, v)
 	}
 
 	return result

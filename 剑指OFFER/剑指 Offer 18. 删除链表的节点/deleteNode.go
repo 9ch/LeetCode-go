@@ -21,7 +21,7 @@ import (
 输入: head = [4,5,1,9], val = 1
 输出: [4,5,9]
 解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -> 5 -> 9.
- 
+
 
 说明：
 
@@ -47,7 +47,6 @@ func main() {
 
 //循环
 func deleteNode(head *ListNode, val int) *ListNode {
-
 	if head.Val == val {
 		return head.Next
 	}
@@ -55,7 +54,7 @@ func deleteNode(head *ListNode, val int) *ListNode {
 	cur := head.Next
 	pre := head
 
-	for cur != nil && cur.Val !=val {
+	for cur != nil && cur.Val != val {
 		pre = cur
 		cur = cur.Next
 	}
@@ -63,7 +62,6 @@ func deleteNode(head *ListNode, val int) *ListNode {
 	if cur != nil {
 		pre.Next = cur.Next
 	}
-
 
 	return head
 

@@ -29,7 +29,13 @@ import "fmt"
 
 func main() {
 	nums := []int{1, 2, 3, 4}
-	fmt.Println(subsets(nums))
+	//nums1 := []int{1, 2, 3}
+	//nums2 := []int{1, 2}
+	//nums3 := []int{1}
+	fmt.Println(subsets1(nums))
+	//fmt.Println(subsets1(nums1))
+	//fmt.Println(subsets1(nums2))
+	//fmt.Println(subsets1(nums3))
 }
 
 /**
@@ -59,13 +65,25 @@ func subsets(nums []int) [][]int {
 			result = append(result, []int{nums[k]})
 		}
 		result = append(result, []int{}, temp)
-		fmt.Println(result)
 	}
 
 	return result
 }
 
-//暴力循环
-//func subsets(nums []int)[][]int{
-//
-//}
+//核心思想是遍历的时候，每个元素都把当前结果集里面的数据复制出来，并把当前当前值放进去，最后再放到结果集里面。
+func subsets1(nums []int) [][]int {
+
+	length := len(nums)
+	fmt.Println(nums)
+	result := [][]int{[]int{}} //定义几个空的结果集
+
+	for i := 0; i < length; i++ { //遍历当前元素
+		temp := result //复制一份当前结果集出来
+		fmt.Println(temp)
+		for j := 0; j < len(temp); j++ { //将当前元素追加到复制出来的结果集的每一个子数组里面。
+			temp[j] = append(temp[j], nums[i])
+		}
+		result = append(result, temp...) //将当前已经添加好的结果集再次追加到先前的结果集里面。
+	}
+	return result
+}

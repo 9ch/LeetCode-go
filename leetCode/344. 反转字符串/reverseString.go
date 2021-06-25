@@ -23,7 +23,7 @@ import "fmt"
 
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/reverse-string/
- */
+*/
 
 func main() {
 	s1 := []byte{'h', 'e', 'l', 'l', 'o'}
@@ -39,10 +39,21 @@ func main() {
 //暴力遍历。直接换位置赋值
 func reverseString(s []byte) {
 	for i := 0; i < len(s); i++ {
-		if  i < len(s)/2 {
+		if i < len(s)/2 {
 			s[len(s)-i-1], s[i] = s[i], s[len(s)-i-1]
 		} else {
 			break
 		}
 	}
+}
+
+func reverseString2(s []byte) {
+	l, r := 0, len(s)-1
+
+	for l < r {
+		s[l], s[r] = s[r], s[l]
+		l++
+		r--
+	}
+
 }

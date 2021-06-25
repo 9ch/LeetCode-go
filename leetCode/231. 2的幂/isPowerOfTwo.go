@@ -34,13 +34,6 @@ func main() {
 //使用位运算通过计算1出现的次数来判断，因为2的幂次方，只有最左边的位数是1。
 func isPowerOfTwo(n int) bool {
 
-	if n == 1 {
-		return true
-	}
-	if n == 0 {
-		return false
-	}
-
 	for n > 0 {
 		if n == 1 {
 			return true
@@ -51,4 +44,9 @@ func isPowerOfTwo(n int) bool {
 		n = n >> 1
 	}
 	return false
+}
+
+//使用n 对 n-1 的 and 运算来进行求值，如果
+func isPowerOfTwo1(n int) bool {
+	return n&(n-1) == 0
 }
