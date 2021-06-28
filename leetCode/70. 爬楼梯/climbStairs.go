@@ -40,7 +40,6 @@ func main() {
 }
 
 //使用递归
-//看别人说的，这属于动态规划？概念讲的不太明白，是否就是见微知著？
 //拆解最小因子。
 //LeetCode运行不通过，超过最大时间限制
 func climbStairs(n int) int {
@@ -76,4 +75,3 @@ func climbStairs2(n int) int {
 	}
 	return dp[n]
 }
-
