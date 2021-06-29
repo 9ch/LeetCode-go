@@ -39,6 +39,6 @@ func missingNumber(nums []int) int {
 }
 
 //二分法
-func missingNumber2(nums []int) int {
-	//TODO
-}
+//func missingNumber2(nums []int) int {
+//	//TODO
+//}
