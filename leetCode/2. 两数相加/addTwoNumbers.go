@@ -34,7 +34,7 @@ func main() {
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	list := &ListNode{0, nil}
-	result := list
+	result := list //定义一个哨兵节点
 
 	temp := 0
 
@@ -48,7 +48,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			l2 = l2.Next
 		}
 		list.Next = &ListNode{temp % 10, nil}
-		temp = temp/10 //这里很巧妙，相当于进位操作,并且是进位的数。
+		temp = temp / 10 //这里很巧妙，相当于进位操作,并且是进位的数。
 		list = list.Next
 	}
 	return result.Next
