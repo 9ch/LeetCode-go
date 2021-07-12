@@ -39,3 +39,8 @@ func findMagicIndex(nums []int) int {
 	}
 	return -1
 }
+
+//二分查找
+func findMagicIndex2(nums []int) int {
+
+}

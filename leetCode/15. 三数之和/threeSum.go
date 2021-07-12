@@ -26,10 +26,26 @@ import (
 链接：https://leetcode-cn.com/problems/3sum
 */
 func main() {
-	nums := []int{0, 0, 0, 0}
+	nums := []int{-1, 0, 1, 2, -1, -4}
 
 	fmt.Println(nums)
-	fmt.Println(threeSum(nums))
+	fmt.Println(threeSum2(nums))
+}
+
+//不能区分重复
+func threeSum2(nums []int) [][]int {
+	length := len(nums)
+	var result [][]int
+	for i := 0; i < length-1; i++ {
+		for j := i + 1; j < length-1; j++ {
+			for k := j + 1; k < length-1; k++ {
+				if nums[i]+nums[j]+nums[k] == 0 {
+					result = append(result, []int{nums[i], nums[j], nums[k]})
+				}
+			}
+		}
+	}
+	return result
 }
 
 func threeSum(nums []int) [][]int {
