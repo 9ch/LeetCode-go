@@ -27,11 +27,12 @@ func monkey(monkeys []string, m int) []string {
 		if i%m == 0 {
 			monkeys = append(monkeys[:i-1], monkeys[i:]...)
 			i = 1
+			continue
 		} else {
 			monkeys = append(monkeys, monkeys[i-1])
 			monkeys = append(monkeys[:i-1], monkeys[i:]...)
+			i++
 		}
-		i++
 	}
 	return monkeys
 }

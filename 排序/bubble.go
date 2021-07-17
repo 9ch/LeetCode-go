@@ -7,7 +7,7 @@ import (
 func main() {
 	var arr = []int{5, 3, 1, 23, 56}
 	// arr1 := arr[:]
-	s := bubbleSort(arr)
+	s := bubbleSort2(arr)
 	fmt.Println(s)
 }
 
@@ -25,3 +25,13 @@ func bubbleSort(arr []int) []int {
 }
 
 //Output: [1 3 5 23 56]
+func bubbleSort2(arr []int) []int {
+	for i := 0; i < len(arr); i++ {
+		for j := 1 + i; j < len(arr); j++ {
+			if arr[i] > arr[j] {
+				arr[i], arr[j] = arr[j], arr[i]
+			}
+		}
+	}
+	return arr
+}
