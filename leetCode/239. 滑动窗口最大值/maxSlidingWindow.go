@@ -37,6 +37,8 @@ import (
 提示：
 
 1 <= nums.length <= 10^5
+
+
 -10^4 <= nums[i] <= 10^4
 1 <= k <= nums.length
 
@@ -46,7 +48,7 @@ import (
 func main() {
 	nums := []int{1, 3, -1, -3, 5, 3, 6, 7}
 	fmt.Println(maxSlidingWindow(nums, 3))
-	fmt.Println(maxSlidingWindow([]int{1, -1}, 1))
+	fmt.Println(maxSlidingWindow([]int{1, -1}, 2))
 }
 
 //滑动窗口

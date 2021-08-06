@@ -1,11 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 /**
 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
 
- 
+
 
 示例：
 
@@ -14,7 +17,7 @@ s = "leetcode"
 
 s = "loveleetcode"
 返回 2
- 
+
 
 提示：你可以假定该字符串只包含小写字母。
 
@@ -47,4 +50,14 @@ func firstUniqChar(s string) int {
 	}
 
 	return result
+}
+
+// 利用唯一性求解
+func firstUniqChar2(s string) int {
+	for i := 0; i < len(s); i++ {
+		if strings.Index(s, string(s[i])) == strings.LastIndex(s, string(s[i])) {
+			return i
+		}
+	}
+	return -1
 }

@@ -22,15 +22,27 @@ import (
 //链接：https://leetcode-cn.com/problems/factorial-trailing-zeroes
 
 func main() {
-	fmt.Println(tailingZeroes2(1000))
+	fmt.Println(tailingZeroes2(30))
+	fmt.Println(tailingTour(30))
 }
 
 //找出负载因子，只要有5，那么一定会出现尾数为 0 的情况
 func tailingZeroes2(n int) int {
 	count := 0
 	for n > 0 {
-		count = count + n/5
+		count += n / 5
 		n = n / 5
+	}
+	return count
+}
+
+func tailingTour(n int) int {
+	count := 0
+	for n > 0 {
+		if n%5 == 0 {
+			count++
+		}
+		n--
 	}
 	return count
 }

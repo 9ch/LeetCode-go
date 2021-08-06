@@ -78,7 +78,8 @@ func subsets1(nums []int) [][]int {
 	result := [][]int{[]int{}} //定义几个空的结果集
 
 	for i := 0; i < length; i++ { //遍历当前元素
-		temp := result //复制一份当前结果集出来
+		temp := make([][]int, len(result)) //复制一份当前结果集出来
+		copy(temp, result)
 		fmt.Println(temp)
 		for j := 0; j < len(temp); j++ { //将当前元素追加到复制出来的结果集的每一个子数组里面。
 			temp[j] = append(temp[j], nums[i])

@@ -5,7 +5,7 @@ package main
 
 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。
 
- 
+
 
 示例 1：
 
@@ -28,7 +28,7 @@ package main
 解释：链表中没有环。
 
 
- 
+
 
 进阶：
 
@@ -61,6 +61,23 @@ func hasCycle(head *ListNode) bool {
 		}
 		cur = cur.Next.Next
 		head = head.Next
+	}
+	return false
+}
+
+//通过哈希判断是否有环
+func hasCycle2(head *ListNode) bool {
+	if head == nil {
+		return false
+	}
+	m := make(map[*ListNode]struct{})
+	cur := head.Next
+	for cur != nil {
+		if _, ok := m[cur]; ok {
+			return true
+		}
+		m[cur] = struct{}{}
+		cur = cur.Next
 	}
 	return false
 }

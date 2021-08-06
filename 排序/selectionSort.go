@@ -23,7 +23,7 @@ func selectSort(arr []int) []int {
 	for i := 0; i < length; i++ {
 		var temp = i                      //记录当前的索引位置
 		for j := i + 1; j < length; j++ { //记录最小的值的索引
-			if arr[temp] > arr[j] {
+			if arr[j] < arr[temp] {
 				temp = j
 			}
 		}

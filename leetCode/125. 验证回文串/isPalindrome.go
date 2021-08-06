@@ -22,7 +22,7 @@ import (
 
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/valid-palindrome
- */
+*/
 func main() {
 	str1 := "A man, a plan, a canal: Panama"
 	str2 := "race a car"
@@ -56,3 +56,23 @@ func isPalindrome(str string) bool {
 	return true
 }
 
+func isPalindrome2(s string) bool {
+	str := strings.ToLower(s)
+	i, j := 0, len(s)-1
+	for i < j {
+		if !((unicode.IsNumber(rune(str[i]))) || unicode.IsLetter(rune(str[i]))) {
+			i++
+			continue
+		}
+		if !((unicode.IsNumber(rune(str[j]))) || unicode.IsLetter(rune(str[j]))) {
+			j--
+			continue
+		}
+		if str[i] != str[j] {
+			return false
+		}
+		i++
+		j--
+	}
+	return true
+}
