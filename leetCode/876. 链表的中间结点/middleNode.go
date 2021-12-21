@@ -73,3 +73,14 @@ func middleNode(head *ListNode) *ListNode {
 //还可使用栈
 
 //快慢指针
+func middleNode2(head *ListNode) *ListNode {
+	pre, cur := head, head
+	for pre != nil && pre.Next != nil && pre.Next.Next != nil {
+		pre = pre.Next.Next
+		cur = cur.Next
+	}
+	if pre.Next != nil {
+		return cur.Next
+	}
+	return cur
+}

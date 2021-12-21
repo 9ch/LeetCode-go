@@ -32,11 +32,31 @@ func main() {
 	fmt.Println("hello world")
 }
 
-type TreeNode struct{
-	Val int
-	Left,Right *TreeNode
+type TreeNode struct {
+	Val         int
+	Left, Right *TreeNode
 }
 
 func pathSum(root *TreeNode, sum int) [][]int {
+	var result [][]int
 
+	var path []int
+	var dfs func(node *TreeNode, int2 int)
+
+	dfs = func(node *TreeNode, n int) {
+		if node == nil {
+			return
+		}
+		n -= node.Val
+		path = append(path, node.Val)
+		if n == 0 && node.Left == nil && node.Right == nil {
+			result = append(result, append([]int(nil), path...))
+			return
+		}
+		dfs(node.Left, n)
+		dfs(node.Right, n)
+		path = path[:len(path)-1]
+	}
+	dfs(root, sum)
+	return result
 }

@@ -58,7 +58,6 @@ func isValidBST(root *TreeNode) bool {
 	}
 	if root.Val <= pre {
 		return false
-
 	}
 	pre = root.Val
 

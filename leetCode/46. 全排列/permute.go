@@ -22,7 +22,7 @@ import "fmt"
 链接：https://leetcode-cn.com/problems/permutations
 */
 func main() {
-	a := []int{5,4,6,2}
+	a := []int{1, 3, 2}
 
 	//fmt.Println(a)
 	fmt.Println(permute(a))
@@ -38,10 +38,10 @@ func permute(nums []int) [][]int {
 }
 
 func dfs(nums []int, temp []int) {
-
+	fmt.Println(nums, temp)
 	if len(temp) == len(nums) {
 		result = append(result, temp)
-
+		return
 	} else {
 		for _, v := range nums {
 			if !inArray(temp, v) {
@@ -58,7 +58,7 @@ func inArray(arr []int, num int) bool {
 	maps := make(map[int]interface{})
 
 	for _, v := range arr {
-		maps[v] = struct {}{}
+		maps[v] = struct{}{}
 	}
 	if _, ok := maps[num]; ok {
 		return true

@@ -68,14 +68,13 @@ func bfs(root *TreeNode) [][]int {
 	if root == nil {
 		return result
 	}
-	//双端队列
 	queue := list.New()
 	queue.PushFront(root)
 
 	for queue.Len() > 0 {
 		var current []int
-		listLength := queue.Len()
-		for i := 0; i < listLength; i++ {
+		length := queue.Len()
+		for i := 0; i < length; i++ {
 			node := queue.Remove(queue.Back()).(*TreeNode)
 			current = append(current, node.Val)
 			if node.Left != nil {
